@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Cards</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: rgb(28, 28, 32);
+      }
+      .container {
+        width: 600px;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url("table-texture.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        border: none;
+        border-radius: 4px;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-40%) translateY(-50%);
+      }
+      .img-div {
+        width: 440px;
+        height: 400px;
+        position: relative;
+      }
+      #img1,
+      #img2,
+      #img3,
+      #img4 {
+        position: absolute;
+        border-radius: 6px;
+        object-fit: cover;
+        border: 1px solid gray;
+        box-shadow: 3px 3px 4px;
+
+        transition: all 0.3s ease-in-out;
+        animation: opacity-scale 1s ease-in;
+      }
+      @keyframes opacity-scale {
+        0% {
+          transform: scale(2) rotate(10deg);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1) rotate(auto);
+          opacity: 1;
+        }
+      }
+      #img1 {
+        width: 210px;
+        height: 150px;
+        top: 0;
+        transform: rotate(-10deg);
+        z-index: 1;
+      }
+      #img2 {
+        width: 160px;
+        height: 250px;
+        bottom: 30px;
+        transform: rotate(-24deg);
+        z-index: 2;
+      }
+      #img3 {
+        width: 180px;
+        height: 220px;
+        right: 80px;
+        transform: rotate(14deg);
+      }
+      #img4 {
+        width: 240px;
+        height: 180px;
+        bottom: 20px;
+        right: 50px;
+        transform: rotate(-10deg);
+        z-index: 3;
+      }
+      #img1:hover,
+      #img4:hover {
+        transform: rotate(-4deg) scale(1.05);
+        cursor: pointer;
+      }
+      #img3:hover {
+        transform: rotate(24deg) scale(1.05);
+        cursor: pointer;
+      }
+      #img2:hover {
+        transform: rotate(-16deg) scale(1.05);
+        cursor: pointer;
+      }
+      #img1:focus,
+      #img2:focus,
+      #img3:focus,
+      #img4:focus {
+        transform: rotate(0deg) scale(1.5);
+        z-index: 5;
+        top: 20%;
+        left: 20%;
+      }
+      button {
+        background-color: rgb(39, 151, 255);
+        width: 160px;
+        height: 40px;
+        border: none;
+        border-radius: 4px 20px 4px 20px;
+        color: white;
+        font-size: 1.1rem;
+        box-shadow: 2px 2px 4px black;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+
+        transition: all 0.5s;
+      }
+      button:hover {
+        cursor: pointer;
+        padding-right: 50px;
+        background-color: rgb(30, 92, 150);
+        border-radius: 20px 4px 20px 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="img-div">
+        <img src="i1.jpg" alt="" id="img1" tabindex="0" loading="lazy" />
+        <img src="i2.jpg" alt="" id="img2" tabindex="0" loading="lazy" />
+        <img src="i3.jpg" alt="" id="img3" tabindex="0" loading="lazy" />
+        <img src="i4.jpg" alt="" id="img4" tabindex="0" loading="lazy" />
+      </div>
+      <button>Hi !</button>
+    </div>
+  </body>
+</html>
