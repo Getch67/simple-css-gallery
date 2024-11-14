@@ -12,23 +12,21 @@
       }
       body {
         background-color: rgb(28, 28, 32);
+        padding-top: 5rem;
       }
       .container {
+        position: relative;
         width: 600px;
         height: 500px;
         display: flex;
         justify-content: center;
         align-items: center;
         background: url("table-texture.jpg");
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
         border: none;
         border-radius: 4px;
-
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-40%) translateY(-50%);
+        margin: auto;
       }
       .img-div {
         width: 440px;
@@ -43,7 +41,7 @@
         border-radius: 6px;
         object-fit: cover;
         border: 1px solid gray;
-        box-shadow: 3px 3px 4px;
+        box-shadow: 4px 4px 8px black;
 
         transition: all 0.3s ease-in-out;
         animation: opacity-scale 1s ease-in;
@@ -119,7 +117,7 @@
         box-shadow: 2px 2px 4px black;
         position: absolute;
         top: 10px;
-        right: 20px;
+        right: -60px;
 
         transition: all 0.5s;
       }
@@ -129,9 +127,40 @@
         background-color: rgb(30, 92, 150);
         border-radius: 20px 4px 20px 4px;
       }
+      .loader_container {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(28, 28, 32);
+        top: 0;
+        left: 0;
+        z-index: 1000;
+      }
+      .loader {
+        width: 40px;
+        height: 40px;
+        border: 5px solid white;
+        border-top: 5px solid rgb(39, 151, 255);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
     </style>
   </head>
   <body>
+    <div class="loader_container">
+      <div class="loader"></div>
+    </div>
     <div class="container">
       <div class="img-div">
         <img src="i1.jpg" alt="" id="img1" tabindex="0" loading="lazy" />
@@ -141,5 +170,12 @@
       </div>
       <button>Hi !</button>
     </div>
+
+    <script>
+      const loaderContainer = document.querySelector(".loader_container");
+      window.addEventListener("load", () => {
+        loaderContainer.style.display = "none";
+      });
+    </script>
   </body>
 </html>
